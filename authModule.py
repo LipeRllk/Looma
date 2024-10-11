@@ -9,14 +9,14 @@ class Auth:
         self.db = Database()  # Cria uma conexão com o banco de dados usando a classe Database
 
     # Método para gerar uma senha segura com hash
-    def hashPassword(self, password):
+    def hash_password(self, password):
         # Converte a senha em um hash SHA-256
         return hashlib.sha256(password.encode()).hexdigest()
 
     # Método para registrar um novo usuário no sistema
     def register_user(self, name, email, password):
         # Cria o hash (código) da senha para armazenamento seguro
-        hashed_password = self.hashPassword(password)
+        hashed_password = self.hash_password(password)
         # Tenta criar um novo usuário no banco de dados, retornando o ID do usuário criado
         user_id = self.db.create_user(name, email, hashed_password)
         
@@ -37,7 +37,7 @@ class Auth:
             stored_password = user[3]
             
             # Compara a senha armazenada com o hash da senha que o usuário forneceu
-            if stored_password == self.hashPassword(password):
+            if stored_password == self.hash_password(password):
                 print("Logado com sucesso")  # Mensagem de sucesso no login
                 return user  # Retorna os dados do usuário logado
             else:

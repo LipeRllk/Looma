@@ -3,39 +3,29 @@ from psycopg2 import sql
 
 # Classe responsável pela interação com o banco de dados
 class Database:
-    
-    # Inicializa a classe Database e faz a conexão com o banco de dados PostgreSQL
     def __init__(self):
-        # Conecta ao banco de dados usando as informações fornecidas
         self.connection = psycopg2.connect(
-            host="localhost",      # Endereço do banco de dados (neste caso, o banco está no próprio computador)
-            database="looma",      # Nome do banco de dados
-            user="postgres",       # Usuário do banco de dados
-            password="1234"        # Senha do banco de dados
+            host="localhost",
+            database="looma",
+            user="postgres",
+            password="1234"
         )
-        # Cria um cursor para executar comandos SQL no banco de dados
         self.cursor = self.connection.cursor()
 
-    # Método para criar um novo usuário no banco de dados
     def create_user(self, name, email, password):
         try:
-            # Executa um comando SQL para inserir um novo usuário na tabela 'users'
             self.cursor.execute(
                 """
                 INSERT INTO users (name, email, password)
                 VALUES (%s, %s, %s)
-                RETURNING id;  # Retorna o ID do usuário que acabou de ser criado
+                RETURNING id;
                 """, (name, email, password)
             )
-            # Pega o ID do novo usuário criado
             user_id = self.cursor.fetchone()[0]
-            # Confirma as mudanças no banco de dados (salva as alterações)
             self.connection.commit()
-            return user_id  # Retorna o ID do novo usuário
+            return user_id
         except psycopg2.Error as e:
-            # Exibe uma mensagem de erro caso ocorra algum problema na criação do usuário
             print(f"Error creating user: {e}")
-            # Desfaz qualquer alteração no banco de dados em caso de erro
             self.connection.rollback()
 
     # Método para buscar um usuário pelo email no banco de dados
