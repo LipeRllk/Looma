@@ -1,0 +1,20 @@
+-- Cria o banco de dados chamado "looma"
+CREATE DATABASE looma;
+
+-- Conecta ao banco de dados "looma"
+\c looma;
+
+-- Cria a tabela "users" que armazenará os dados dos usuários
+CREATE TABLE users (
+    -- Campo "id" como chave primária, que é único para cada usuário e autoincrementado
+    id SERIAL PRIMARY KEY,
+
+    -- Campo "name" para armazenar o nome do usuário, com até 100 caracteres
+    name VARCHAR(100),
+
+    -- Campo "email" para armazenar o email do usuário, com até 100 caracteres, e que deve ser único
+    email VARCHAR(100) UNIQUE,
+
+    -- Campo "password" para armazenar a senha do usuário, com até 255 caracteres (geralmente criptografada)
+    password VARCHAR(255)
+);
