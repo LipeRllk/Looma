@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px; /* Largura máxima simulando um celular */
+    height: 600px; /* Altura fixa para o contêiner */
+    display: flex;
+    flex-direction: column; /* Para empilhar o conteúdo verticalmente */
+}
+
+header {
+    background: #007BFF;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.logo {
+    max-width: 100%; /* Garante que a imagem não exceda o tamanho do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+main {
+    flex-grow: 1; /* Permite que o main cresça para preencher o espaço disponível */
+    display: flex;
+    flex-direction: column; /* Para empilhar o conteúdo */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+}
+
+.search-input {
+    width: 90%; /* Largura do campo de busca */
+    padding: 10px; /* Padding para o campo de busca */
+    margin: 10px 0; /* Margem acima e abaixo do campo */
+    border: 1px solid #ccc; /* Borda do campo */
+    border-radius: 5px; /* Cantos arredondados */
+}
+
+.manuals-container {
+    display: grid; /* Utiliza grid para a disposição */
+    grid-template-columns: repeat(2, 1fr); /* Cria duas colunas */
+    gap: 10px; /* Espaçamento entre os manuais */
+    width: 90%; /* Largura dos manuais */
+}
+
+.manual-card {
+    background-color: #e9ecef; /* Cor de fundo dos manuais */
+    border-radius: 5px; /* Cantos arredondados */
+    padding: 20px; /* Aumenta o padding interno */
+    text-align: center; /* Centraliza o texto */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+.manual-card:hover {
+    background-color: #d3d3d3; /* Muda a cor de fundo ao passar o mouse */
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ccc; /* Linha discreta */
+    margin: 10px 0; /* Margem acima e abaixo da linha */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Para espaçar os botões */
+    margin: 10px; /* Margem para os botões */
+}
+
+.nav-button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px; /* Altere os valores de padding para ajustar o tamanho */
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav-button:hover {
+    background: #0056b3;
+}
+.chat-button {
+    background: #007BFF; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 15px 25px; /* Aumente o padding para tornar o botão maior */
+    font-size: 18px; /* Aumente o tamanho da fonte */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    margin: 10px 0; /* Margem acima e abaixo do botão */
+    width: 90%; /* Largura do botão */
+}
+
+.chat-button:hover {
+    background: #0056b3; /* Cor ao passar o mouse */
+}

@@ -24,7 +24,6 @@ class Database:
             user_id = self.cursor.fetchone()[0]
             self.connection.commit()
             return user_id
-        except psycopg2.Error as e:
             print(f"Error creating user: {e}")
             self.connection.rollback()
 
